@@ -80,3 +80,7 @@ Install `tshark`, run:
 ```
 tshark -i mon0 subtype probereq
 ```
+
+# Links
+ - https://www.theregister.co.uk/2017/03/10/mac_address_randomization/
+ - http://www.gizmodo.co.uk/2017/02/heres-what-tfl-learned-from-tracking-your-phone-on-the-tube/

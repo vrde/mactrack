@@ -1,5 +1,11 @@
 import argparse
 
+from . import config
+config.setup_logging()
+
+import logging
+log = logging.getLogger(__name__)
+
 
 def emit(args):
     from . import emit
@@ -7,6 +13,8 @@ def emit(args):
 
 
 def main():
+    log.info('Starting mactrack')
+    config.setup_database()
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
     emit(args)

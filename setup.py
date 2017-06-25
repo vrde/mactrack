@@ -11,7 +11,8 @@ setup(
 
     packages=find_packages(),
     install_requires=[
-        'python-dateutil'
+        'python-dateutil',
+        'coloredlogs'
     ],
 
     entry_points={
