@@ -9,24 +9,25 @@ FILENAME = 'mactrack.db'
 
 TABLES = {
     'beacons': '''CREATE TABLE beacons (
-        id INTEGER PRIMARY KEY,
+        id TEXT PRIMARY KEY,
         dt TEXT,
         dbm INTEGER,
         sa TEXT,
         sa_resolved TEXT,
         lat REAL,
         lon REAL)'''
-    }
+}
 
 INSERTS = {
     'beacons': '''INSERT INTO beacons (
+        id,
         dt,
         dbm,
         sa,
         sa_resolved,
         lat,
         lon)
-        VALUES (?, ?, ?, ?, ?, ?)'''
+        VALUES (?, ?, ?, ?, ?, ?, ?)'''
 }
 
 
@@ -45,7 +46,7 @@ def create_tables():
     conn.close()
 
 
-def insert_beacon(conn, dt, dbm, sa, sa_resolved, lat, lon):
+def insert_beacon(conn, id_, dt, dbm, sa, sa_resolved, lat, lon):
     cursor = conn.cursor()
-    cursor.execute(INSERTS['beacons'], (dt, dbm, sa, sa_resolved, lat, lon))
+    cursor.execute(INSERTS['beacons'], (id_, dt, dbm, sa, sa_resolved, lat, lon))
     conn.commit()
